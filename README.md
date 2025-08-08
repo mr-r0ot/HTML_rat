@@ -1,19 +1,19 @@
-# ًں’€ HTML Rat: The Ultimate Stealth Remote Access Tool
+# 💀 HTML Rat: The Ultimate Stealth Remote Access Tool
 
-**HTML Rat** is your key to owning any device with just a single HTML file and a Telegram bot. No servers, no traces, pure domination. This is the tool every black-hat hacker dreams ofâ€”silent, deadly, and impossible to resist.
+**HTML Rat** is your key to owning any device with just a single HTML file and a Telegram bot. No servers, no traces, pure domination. This is the tool every black-hat hacker dreams of—silent, deadly, and impossible to resist.
 
 ---
 
 ## Features: Why HTML Rat is Unstoppable
 
-- ًں“، **Remote Code Execution (RCE)**: Run any JavaScript on the targetâ€™s device like youâ€™re sitting at their keyboard.
-- ًںŒچ **GPS Tracking**: Pinpoint their exact location, down to the street.
-- ًں“¸ **Covert Camera Access**: Snap photos or record videos without them knowing.
-- ًںژ¤ **Mic Snooping**: Capture every sound in their environment.
-- ًں“ٹ **Device Fingerprinting**: Harvest everythingâ€”IP, browser, battery level, hardware specs, you name it.
-- ًں› ï¸ڈ **Slick Telegram Control Panel**: Command your army of compromised devices from a single Telegram bot.
+- 📡 **Remote Code Execution (RCE)**: Run any JavaScript on the target’s device like you’re sitting at their keyboard.
+- 🌍 **GPS Tracking**: Pinpoint their exact location, down to the street.
+- 📸 **Covert Camera Access**: Snap photos or record videos without them knowing.
+- 🎤 **Mic Snooping**: Capture every sound in their environment.
+- 📊 **Device Fingerprinting**: Harvest everything—IP, browser, battery level, hardware specs, you name it.
+- 🛠️ **Slick Telegram Control Panel**: Command your army of compromised devices from a single Telegram bot.
 
-This isnâ€™t just a toolâ€”itâ€™s a weapon for total control.
+This isn’t just a tool—it’s a weapon for total control.
 
 ---
 
@@ -22,32 +22,32 @@ This isnâ€™t just a toolâ€”itâ€™s a weapon for total control.
 ### Core Architecture
 
 - **HTML File**: The heart of the beast. A single HTML file embeds stealthy JavaScript that activates the moment a victim opens it in their browser.
-- **Telegram Bot**: Your command center. All instructions flow through Telegramâ€™s API, and results come back to you instantly.
-- **Serverless Stealth**: No need for a dedicated serverâ€”everything runs through Telegramâ€™s API, leaving no footprints.
+- **Telegram Bot**: Your command center. All instructions flow through Telegram’s API, and results come back to you instantly.
+- **Serverless Stealth**: No need for a dedicated server—everything runs through Telegram’s API, leaving no footprints.
 
 ### Workflow Breakdown
 
 1. **Client Registration**:
 
    - When the victim loads the HTML file, the embedded JavaScript springs into action.
-   - The targetâ€™s public IP is grabbed via an external API (`https://api.ipify.org`).
+   - The target’s public IP is grabbed via an external API (`https://api.ipify.org`).
    - A detailed device profile is collected, including:
      - **User Agent**: Browser and OS details via `navigator.userAgent`.
-     - **Screen Resolution**: `window.screen.width` أ— `window.screen.height`.
+     - **Screen Resolution**: `window.screen.width` × `window.screen.height`.
      - **Language**: `navigator.language`.
      - **Hardware**: CPU cores (`navigator.hardwareConcurrency`), memory, and more.
    - This data is sent to your Telegram bot as a notification and compiled into an `info.html` file, uploaded for your viewing pleasure.
 
 2. **Command Processing**:
 
-   - The script polls Telegramâ€™s API using `getUpdates` every few seconds to check for your commands.
+   - The script polls Telegram’s API using `getUpdates` every few seconds to check for your commands.
    - Send `/panel` to your bot to see a list of all compromised devices, each marked with their IP and online status.
    - Select a device to access a menu with options like executing code, snapping photos, or grabbing GPS data.
 
 3. **Remote Code Execution (RCE)**:
 
    - In "Run JS" mode, send any JavaScript code through Telegram (e.g., `alert("Owned!")` or something nastier).
-   - The script uses `eval()` to execute it directly on the victimâ€™s device.
+   - The script uses `eval()` to execute it directly on the victim’s device.
    - Results (or errors) are sent back to your bot as text or files.
 
 4. **Hardware Access**:
@@ -75,7 +75,7 @@ This isnâ€™t just a toolâ€”itâ€™s a weapon for total control.
 
 1. Open Telegram and message **@BotFather**.
 2. Send `/newbot`, choose a name, and grab the bot token.
-3. Keep that token safeâ€”itâ€™s your key to the kingdom.
+3. Keep that token safe—it’s your key to the kingdom.
 
 ### Step 2: Configure HTML Rat
 
@@ -87,7 +87,7 @@ This isnâ€™t just a toolâ€”itâ€™s a weapon for total control.
    const BOT_TOKEN = 'YOUR TELEGRAM BOT TOKEN';
    ```
 
-   Replace `'YOUR TELEGRAM BOT TOKEN'` with your botâ€™s token.
+   Replace `'YOUR TELEGRAM BOT TOKEN'` with your bot’s token.
 
 3. Find your Telegram user ID:
 
@@ -105,7 +105,7 @@ This isnâ€™t just a toolâ€”itâ€™s a weapon for total control.
 ### Step 3: Deploy the Trap
 
 - Host the `index.html` file on an HTTPS server (e.g., GitHub Pages, Netlify). HTTPS is mandatory for camera and mic access.
-- Trick the target into opening the file in their browser. Once they do, theyâ€™re yours.
+- Trick the target into opening the file in their browser. Once they do, they’re yours.
 
 ---
 
@@ -174,7 +174,7 @@ These tricks buy you time while the script works its magic in the background.
 
 ## Disclaimer
 
-This tool is for educational purposes only. Unauthorized use is illegal and unethical. Youâ€™re on your own if you cross the line.
+This tool is for educational purposes only. Unauthorized use is illegal and unethical. You’re on your own if you cross the line.
 
 ---
 
